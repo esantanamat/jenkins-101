@@ -24,6 +24,7 @@ pipeline {
             steps {
                 echo "This is the testing stage"
                 sh '''
+                    . ./venv/bin/activate
                     cd myapp
                     python3 hello.py
                     python3 hello.py --name=Enmanuel
