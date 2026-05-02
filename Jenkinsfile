@@ -14,9 +14,9 @@ pipeline {
                 echo "Installing dependencies"
                 sh  '''
                 python3 -m venv venv
-                sudo ./venv/bin/activate
+                . ./venv/bin/activate
                 cd myapp 
-                pip install -r requirements.txt'
+                pip install -r requirements.txt
                 '''
             }
         }
