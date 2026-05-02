@@ -11,14 +11,18 @@ pipeline {
     stages {
         stage('Hello World') {
             steps {
-                echo "Executing shell hello world"
-                sh  'echo "hello world"'
+                echo "Installing dependencies"
+                sh  'cd myapp && pip install -r requirements.txt'
             }
         }
         stage('Testing stage') {
             steps {
                 echo "This is the testing stage"
-                sh 'echo "Testing stage"'
+                sh '''
+                    cd myapp
+                    python3 hello.py
+                    python3 hello.py --name=Enmanuel
+                '''
             }
         }
         stage('Final stage') {
