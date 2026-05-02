@@ -17,6 +17,7 @@ pipeline {
                 ./venv/bin/activate
                 cd myapp 
                 pip install -r requirements.txt'
+                '''
             }
         }
         stage('Testing stage') {
@@ -25,6 +26,7 @@ pipeline {
                 sh '''
                     cd myapp
                     python3 hello.py
+                    python3 hello.py --name=Enmanuel
                 '''
             }
         }
