@@ -12,7 +12,11 @@ pipeline {
         stage('Hello World') {
             steps {
                 echo "Installing dependencies"
-                sh  'cd myapp && pip install -r requirements.txt'
+                sh  '''
+                python3 -m venv venv
+                ./venv/bin/activate
+                cd myapp 
+                pip install -r requirements.txt'
             }
         }
         stage('Testing stage') {
